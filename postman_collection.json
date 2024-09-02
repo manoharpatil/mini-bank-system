@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "Mini Bank System",
+    "description": "Collection for testing Mini Bank System APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Customer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"John\",\n    \"lastname\": \"Doe\",\n    \"phoneNumber\": \"1234567890\",\n    \"email\": \"john.doe@example.com\",\n    \"customerType\": \"PRIVATE\",\n    \"addresses\": [\n        {\n            \"city\": \"New York\",\n            \"street\": \"5th Avenue\",\n            \"zipCode\": \"10001\"\n        }\n    ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/customers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Customer",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"John\",\n    \"lastname\": \"Doe\",\n    \"phoneNumber\": \"0987654321\",\n    \"email\": \"john.doe@newemail.com\",\n    \"customerType\": \"INDIVIDUAL\",\n    \"addresses\": [\n        {\n            \"city\": \"Los Angeles\",\n            \"street\": \"Sunset Boulevard\",\n            \"zipCode\": \"90001\"\n        }\n    ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/customers/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Customers",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/customers/search?term=John&page=0&size=5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "customers",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "term",
+              "value": "John"
+            },
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
