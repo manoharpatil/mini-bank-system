@@ -16,48 +16,71 @@ This project is a microservice-based application for managing bank customers. It
 
 ## Project Structure
 ```
+
 mini-bank-system/
+├── docs/
+│   └── postman_collection.json
 ├── src/
 │   ├── main/
 │   │   ├── java/
 │   │   │   └── com/
 │   │   │       └── minibank/
 │   │   │           ├── config/
-│   │   │           │   ├── AuditorAwareImpl.java
+│   │   │           │   └── AuditorAwareImpl.java
 │   │   │           ├── controller/
-│   │   │           │   ├── CustomerController.java
+│   │   │           │   └── CustomerController.java
 │   │   │           ├── dto/
-│   │   │           │   ├── AddressDto.java
-│   │   │           │   ├── CustomerDto.java
+│   │   │           │   ├── AddressDTO.java
+│   │   │           │   └── CustomerDTO.java
 │   │   │           ├── entity/
 │   │   │           │   ├── Account.java
 │   │   │           │   ├── Address.java
 │   │   │           │   ├── BaseEntity.java
 │   │   │           │   ├── Customer.java
-│   │   │           │   ├── CustomerType.java
+│   │   │           │   └── CustomerType.java
+│   │   │           ├── exception/
+│   │   │           │   ├── AccountNotFoundException.java
+│   │   │           │   ├── CustomerAlreadyAssignedException.java
+│   │   │           │   ├── CustomerAlreadyExistsException.java
+│   │   │           │   ├── CustomerNotAssignedException.java
+│   │   │           │   ├── CustomerNotFoundException.java
+│   │   │           │   ├── ErrorResponse.java
+│   │   │           │   └── GlobalExceptionHandler.java
 │   │   │           ├── repository/
 │   │   │           │   ├── AccountRepository.java
-│   │   │           │   ├── CustomerRepository.java
+│   │   │           │   └── CustomerRepository.java
 │   │   │           ├── service/
 │   │   │           │   ├── AccountService.java
-│   │   │           │   ├── CustomerService.java
-│   │   │           ├── MiniBankSystemApplication.java
-│   │   ├── resources/
-│   │   │   ├── application.yml
-│   │   │   ├── data.sql
-│   │   │   ├── logback.xml
-│   │   │   ├── schema.sql
-├── test/
-│   ├── java/
-│   │   └── com/
-│   │       └── minibank/
-│   │           ├── service/
-│   │           │   ├── CustomerServiceTest.java
+│   │   │           │   └── CustomerService.java
+│   │   │           └── MiniBankSystemApplication.java
+│   │   └── resources/
+│   │       ├── application.yml
+│   │       ├── data.sql
+│   │       ├── logback.xml
+│   │       └── schema.sql
+│   ├── test/
+│   │   └── java/
+│   │       └── com/
+│   │           └── minibank/
+│   │               ├── config/
+│   │               │   └── AuditorAwareImplTest.java
+│   │               ├── controller/
+│   │               │   └── CustomerControllerTest.java
+│   │               ├── dto/
+│   │               │   └── CustomerDTOTest.java
+│   │               ├── entity/
+│   │               │   └── AccountTest.java
+│   │               ├── exception/
+│   │               │   └── GlobalExceptionHandlerTest.java
+│   │               ├── service/
+│   │               │   ├── AccountServiceTest.java
+│   │               │   └── CustomerServiceTest.java
+│   │               └── MiniBankSystemApplicationTest.java
 ├── .gitignore
 ├── Dockerfile
 ├── pom.xml
-├── postman_collection.json
-├── README.md
+└── README.md
+
 ```
 
 ## Launching the Application

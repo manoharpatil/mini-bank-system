@@ -16,7 +16,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update  # Typically 'update' is preferred for development
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
@@ -27,6 +27,15 @@ spring:
           audit_table_suffix: "_AUD"
           revision_field_name: "REV"
           revision_type_field_name: "REVTYPE"
+    open-in-view: true  # Ensures Hibernate is open for the duration of the view rendering
+
+  main:
+    allow-bean-definition-overriding: true
+
+  security:
+    user:
+      name: user
+      password: password
 
 logging:
   level:

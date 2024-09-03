@@ -112,13 +112,19 @@ class CustomerServiceTest {
         Customer customer = new Customer();
         customer.setName("John");
 
+        // Create a Page object with the mock customer
         Page<Customer> page = new PageImpl<>(Collections.singletonList(customer));
 
-        when(customerRepository.findAll(PageRequest.of(0, 5))).thenReturn(page);
+        // Mock the repository method to return the page
+        when(customerRepository.searchByTerm("John", PageRequest.of(0, 5))).thenReturn(page);
 
+        // Call the service method
         Page<Customer> result = customerService.searchCustomers("John", 0, 5);
+
+        // Verify the results
         assertNotNull(result);
         assertEquals(1, result.getTotalElements());
         assertEquals("John", result.getContent().get(0).getName());
     }
+
 }

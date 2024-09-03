@@ -53,6 +53,6 @@ public class CustomerService {
     public Page<Customer> searchCustomers(String term, int page, int size) {
         PageRequest pageRequest = PageRequest.of(page, size);
 
-        return customerRepository.findAll(pageRequest);
+        return customerRepository.searchByTerm(term, pageRequest);
     }
 }
